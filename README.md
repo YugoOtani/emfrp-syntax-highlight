@@ -1,5 +1,6 @@
 # 概要
-パワポ等で載せる時用のEmfrpのTokenベースSyntax-Highlight
+パワポ等で載せる時用のEmfrpのTokenベースSyntax-Highlight。
+
 プロジェクトディレクトリでF5を押すと.mfrpのファイルがハイライトされます。
 
 - Tokenを追加したい -> `syntaxes/emfrp.tmLanguage.json`にルールを追加
