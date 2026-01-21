@@ -1,0 +1,23 @@
+module Sample
+in  x(False) : Bool, y: Int
+out z : Bool
+
+use Std
+
+type MaybeInt = Somei(Int) | Nonei
+
+# if then else
+node init[None] foo =
+  if x then Some(y + 500) 
+  else foo@last
+
+# patten matching
+node init[0] bar = {
+  f = foo
+  foo of: 
+    Some(v) -> v + 100
+    None    -> inc(bar@last)
+}
+
+# function
+func inc(a: Int) : Int = a + 1

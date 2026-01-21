@@ -1,0 +1,157 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "emfrp",
+	"scopeName": "source.mfrp",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#number"
+		},
+		{
+			"include": "#atlast"	
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#imports"
+		},
+		{
+			"include": "#keywords_control"
+		},
+		{
+			"include": "#module_decl"
+		},
+		{
+			"include": "#keywords_decl"
+		},
+		{
+			"include": "#types_builtin"
+		},
+		{
+			"include": "#types_heuristic"
+		},
+		{
+			"include": "#pattern_match_arrow"
+		},
+		{
+			"include": "#functions"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign.mfrp",
+					"match": "#.*$"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.mfrp",
+					"match": "[+\\-.*/=<>!&|%^]+"
+				}
+			]
+		},
+		"atlast": {
+			"patterns": [
+				{
+					"name": "keyword.operator.atlast.mfrp",
+					"match": "@last\\b"
+				}
+			]	
+		},
+		"number": {
+			"patterns": [
+				{
+					"name": "constant.numeric.mfrp",
+					"match": "\\b\\d+(?:\\.\\d+)?(?:[eE][+-]?\\d+)?\\b"
+				}
+			]
+		},
+		"pattern_match_arrow": {
+			"patterns": [
+				{
+					"name": "keyword.operator.mfrp",
+					"match": "->"
+				}
+			]
+		},
+		"keywords_control": {
+			"patterns": [
+				{
+					"name": "keyword.control.mfrp",
+					"match": "\\b(?:if|else|then|match|of|of:)\\b"
+				}
+			]
+		},
+		"keywords_decl": {
+			"patterns": [
+				{
+					"name": "keyword.declaration.mfrp",
+					"match": "\\b(?:func|node|data|type|use|in|out|module)\\b"
+				}
+			]
+		},
+		"types_builtin": {
+			"patterns": [
+				{
+					"name": "entity.name.type.mfrp",
+					"match": "\\b(?:Int|Double|Bool|String|Unit|Opt)\\b"
+				}
+			]
+		},
+		"types_heuristic": {
+			"patterns": [
+				{
+					"name": "entity.name.type.mfrp",
+					"match": "\\b[A-Z][A-Za-z0-9_]*\\b"
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"name": "entity.name.function.mfrp",
+					"match": "\\b[a-z_][A-Za-z0-9_]*\\b(?=\\s*\\()"
+				}
+			]
+		},
+		"module_decl": {
+			"patterns": [
+				{
+					"name": "meta.declaration.module.mfrp",
+					"match": "^\\s*(module)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.declaration.module.mfrp"
+						},
+						"2": {
+							"name": "entity.name.namespace.mfrp"
+						}
+					}
+				}
+			]
+		},
+		"imports": {
+			"patterns": [
+				{
+					"name": "meta.import.mfrp",
+					"match": "^\\s*(use)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.declaration.import.mfrp"
+						},
+						"2": {
+							"name": "entity.name.namespace.mfrp"
+						}
+					}
+				}
+			]
+		}
+	}
+}

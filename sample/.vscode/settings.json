@@ -1,0 +1,12 @@
+{
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "keyword.operator.atlast.mfrp",
+        "settings": {
+          "foreground": "#0f0f0e"
+        }
+      }
+    ]
+  }
+}

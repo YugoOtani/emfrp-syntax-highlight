@@ -1,0 +1,25 @@
+{
+  "name": "emfrp-syntax-high",
+  "displayName": "emfrp-syntax-high",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.108.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "emfrp",
+      "aliases": ["Emfrp", "emfrp"],
+      "extensions": [".mfrp"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "emfrp",
+      "scopeName": "source.mfrp",
+      "path": "./syntaxes/emfrp.tmLanguage.json"
+    }]
+  }
+}
